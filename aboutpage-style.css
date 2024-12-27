@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #2c3e50;
+}
+
+.header {
+    text-align: center;
+    background-color: #1abc9c;
+    color: #ffffff;
+    padding: 2rem 0;
+    animation: fadeIn 1.5s ease-in;
+}
+
+.header-title {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.header-description {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+.team {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin: 2rem;
+    animation: slideIn 1.5s ease-in-out;
+}
+
+.team-member {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(44, 62, 80, 0.2);
+    text-align: center;
+    padding: 1.5rem;
+    max-width: 300px;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.team-member:hover {
+    transform: translateY(-15px) scale(1.05);
+    background-color: #ecf0f1;
+    box-shadow: 0 12px 20px rgba(44, 62, 80, 0.3);
+}
+
+.team-member::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(26, 188, 156, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.team-member:hover::after {
+    opacity: 1;
+}
+
+.member-image-container {
+    overflow: hidden;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1rem;
+    animation: zoomIn 1.5s ease;
+    border: 3px solid #1abc9c;
+}
+
+.member-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.member-image:hover {
+    transform: scale(1.1);
+}
+
+.member-name {
+    font-size: 1.5rem;
+    margin: 1rem 0 0.5rem;
+    color: #34495e;
+}
+
+.member-role {
+    font-size: 1.2rem;
+    color: #16a085;
+    margin-bottom: 0.5rem;
+}
+
+.member-bio {
+    font-size: 1rem;
+    color: #7f8c8d;
+}
+
+.footer {
+    text-align: center;
+    background-color: #34495e;
+    color: #ecf0f1;
+    padding: 1rem 0;
+    margin-top: 2rem;
+    animation: fadeIn 2s ease-in;
+}
+
+@media (max-width: 768px) {
+    .team {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .team-member {
+        max-width: 90%;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
