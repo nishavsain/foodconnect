@@ -1,159 +1,143 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
+/* General Styles */
 body {
-    font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
-    color: #2c3e50;
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212;
+    color: #fff;
+    overflow-x: hidden;
 }
 
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Header Section */
 .header {
-    text-align: center;
-    background-color: #1abc9c;
-    color: #ffffff;
-    padding: 2rem 0;
-    animation: fadeIn 1.5s ease-in;
-}
-
-.header-title {
-    font-size: 2.5rem;
-    margin: 0;
-}
-
-.header-description {
-    font-size: 1.2rem;
-    margin-top: 0.5rem;
-}
-
-.team {
+    height: 100vh;
     display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-    margin: 2rem;
-    animation: slideIn 1.5s ease-in-out;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    animation: gradientBG 10s infinite alternate;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
 }
 
-.team-member {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(44, 62, 80, 0.2);
-    text-align: center;
-    padding: 1.5rem;
-    max-width: 300px;
-    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
+.title {
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    animation: fadeIn 2s ease-in-out;
 }
 
-.team-member:hover {
-    transform: translateY(-15px) scale(1.05);
-    background-color: #ecf0f1;
-    box-shadow: 0 12px 20px rgba(44, 62, 80, 0.3);
+.subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 20px;
 }
 
-.team-member::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 10px;
-    box-shadow: 0 0 30px rgba(26, 188, 156, 0.5);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+.cta-btn {
+    background-color: #fff;
+    color: #121212;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.team-member:hover::after {
-    opacity: 1;
-}
-
-.member-image-container {
-    overflow: hidden;
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    margin: 0 auto 1rem;
-    animation: zoomIn 1.5s ease;
-    border: 3px solid #1abc9c;
-}
-
-.member-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.member-image:hover {
+.cta-btn:hover {
+    background-color: #2575fc;
+    color: #fff;
     transform: scale(1.1);
 }
 
-.member-name {
+/* Features Section */
+.features {
+    padding: 50px 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.feature {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 300px;
+}
+
+.feature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    cursor: default;
+}
+
+.feature h2 {
     font-size: 1.5rem;
-    margin: 1rem 0 0.5rem;
-    color: #34495e;
+    font-weight: 600;
+    margin-bottom: 10px;
 }
 
-.member-role {
-    font-size: 1.2rem;
-    color: #16a085;
-    margin-bottom: 0.5rem;
-}
-
-.member-bio {
+.feature p {
     font-size: 1rem;
-    color: #7f8c8d;
+    font-weight: 300;
 }
 
+/* Footer Section */
 .footer {
+    background: #121212;
+    padding: 20px;
     text-align: center;
-    background-color: #34495e;
-    color: #ecf0f1;
-    padding: 1rem 0;
-    margin-top: 2rem;
-    animation: fadeIn 2s ease-in;
+    font-size: 0.9rem;
+    color: #888;
 }
 
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes gradientBG {
+    from {
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
+    }
+    to {
+        background: linear-gradient(135deg, #fc466b, #3f5efb);
+    }
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    .team {
+    .title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .features {
         flex-direction: column;
         align-items: center;
     }
 
-    .team-member {
-        max-width: 90%;
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes zoomIn {
-    from {
-        transform: scale(0.5);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
+    .feature {
+        width: 90%;
     }
 }
